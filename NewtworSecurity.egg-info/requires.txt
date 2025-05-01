@@ -5,6 +5,3 @@ pymongo
 certifi
 scikit-learn
 seaborn
-
-
-##-e .
