@@ -5,6 +5,7 @@ pymongo
 certifi
 scikit-learn
 seaborn
+pymongo[srv]==3.6
 
 
 ##-e .
