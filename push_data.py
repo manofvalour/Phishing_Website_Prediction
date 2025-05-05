@@ -33,9 +33,12 @@ class NetworkDataExtract():
         funtion for converting CSV dataset into JSON file
         """
         try:
+            logging.info("Reading the dataset")
             data = pd.read_csv(file_path)
             data.reset_index(drop=True, inplace=True)
             records =list(json.loads(data.T.to_json()).values())
+
+            logging.info('Dataset successfully converted to JSON file')
 
             return records
 
