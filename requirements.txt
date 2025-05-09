@@ -8,5 +8,6 @@ seaborn
 pymongo[srv]
 dill
 pyaml
+mlflow
 
 ##-e .
