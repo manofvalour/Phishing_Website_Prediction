@@ -4,10 +4,15 @@ numpy
 pymongo
 certifi
 scikit-learn
+fastapi
+uvicorn
 seaborn
 pymongo[srv]
 dill
 pyaml
 mlflow
+dagshub
+python-multipart
+
 
 ##-e .

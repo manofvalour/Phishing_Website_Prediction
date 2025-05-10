@@ -19,9 +19,13 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import (
     AdaBoostClassifier,
     GradientBoostingClassifier,
-    RandomForestClassifier
-)
+    RandomForestClassifier)
+
 import mlflow
+import dagshub
+dagshub.init(repo_owner='manofvalour', 
+             repo_name='network_security',
+             mlflow=True)
 
 
 class ModelTrainer:
@@ -122,6 +126,8 @@ class ModelTrainer:
             network_model= NetworkModel(preprocessor=preprocessor, model=best_model)
             save_object(self.model_trainer_config.trained_model_file_path,obj= NetworkModel)
 
+            save_object("final_model/model.pkl", best_model)
+
             ## Model Trainer Artifact
             model_trainer_artifact=ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
                                  train_metric_artifact=classification_train_metric,
@@ -133,6 +139,7 @@ class ModelTrainer:
 
         except Exception as e:
             raise NetworkSecurityException (e,sys)
+        
 
     def initiate_model_trainer(self)-> ModelTrainerArtifact:
         try:
