@@ -15,6 +15,7 @@ from networksecurity.logging.logger import logging
 
 from networksecurity.pipeline.training_pipeline import TrainingPipeline
 from networksecurity.utils.ml_utils.model.estimator import NetworkModel
+from uvicorn import run as app_run
 
 client= pymongo.MongoClient(mongo_db_url,tlsCAFile=ca)
 
